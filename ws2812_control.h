@@ -14,6 +14,10 @@ struct led_state {
     uint32_t leds[NUM_LEDS];
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
 // Setup the hardware peripheral. Only call this once.
 esp_err_t ws2812_control_init(void);
 
@@ -21,5 +25,9 @@ esp_err_t ws2812_control_init(void);
 // This function will block the current task until the RMT peripheral is finished sending 
 // the entire sequence.
 esp_err_t ws2812_write_leds(struct led_state new_state);
+    
+#ifdef __cplusplus
+}
+#endif
 
 #endif
